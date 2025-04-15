@@ -1,0 +1,11 @@
+mkdir iac && cd iac
+
+# Create folders
+mkdir modules parameters
+
+# Create files
+touch main.bicep
+touch modules/appService.bicep
+touch modules/sqlServer.bicep
+touch modules/storageAccount.bicep
+touch parameters/dev.parameters.json
