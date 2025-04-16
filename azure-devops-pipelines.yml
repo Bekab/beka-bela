@@ -7,7 +7,7 @@ pool:
   vmImage: 'ubuntu-latest'
  
 variables:
-  azureServiceConnection: 'abel-new-service-conn'
+  azureServiceConnection: 'beka-bela-coonectioAR'
   resourceGroupName: 'abel_RG'
   location: 'westeurope'
  
