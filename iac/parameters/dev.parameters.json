@@ -4,7 +4,7 @@
     "parameters": {
      
       "location": {
-        "value": "eastus"
+        "value": "polandcentral"
        
     },
 
@@ -24,7 +24,7 @@
 
 
         "storagename" : {
-          "value": "bekstorage"
+          "value": "bek11storage"
         },
     "adminUser": {
         "value": "beksql"
