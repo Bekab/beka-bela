@@ -9,6 +9,29 @@
         "value": "eastus"
        
     },
+
+       "appServicePlanName" : {
+        "value": "bekappserviceplan"
+       
+
+       },
+        "name":{
+          "value": "bekappservice"
+        
+  
+        },
+        "sqlname" : {
+          "value": "sqlbeka"
+        },
+
+
+        "storagename" : {
+          "value": "bekstorage"
+        },
+    "adminUser": {
+        "value": "beksql"
+       
+    },
     "adminPassword": {"value": "@Microsoft.KeyVault(SecretUri=https://bekey.vault.azure.net/secrets/sqlpassword/bfafe61ec1c94161bada9f67ed34a321)"}    }
   }
   

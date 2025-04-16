@@ -1,26 +1,36 @@
-param environment string
-param location string = resourceGroup().location
+
+param location string
+param appServicePlanName string
+param name string
+param sqlname string
+param storagename string
+param adminUser string
+@secure()
+param adminPassword string
 
 module appService 'modules/appService.bicep' = {
   name: 'deployAppService'
   params: {
-    environment: environment
+    name: name
     location: location
+    appServicePlanName: appServicePlanName
   }
 }
 
 module sqlServer 'modules/sqlServer.bicep' = {
   name: 'deploySql'
   params: {
-    environment: environment
+    name: sqlname
     location: location
+    adminUser: adminUser
+    adminPassword: adminPassword
   }
 }
 
 module storageAccount 'modules/storageAccount.bicep' = {
   name: 'deployStorage'
   params: {
-    environment: environment
+    name: storagename
     location: location
   }
 }
