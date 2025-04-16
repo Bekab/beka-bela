@@ -4,7 +4,9 @@ trigger:
       - main
  
 pool:
-  vmImage: 'ubuntu-latest'
+ 
+  name: bela-beka-agent # Use the name of your agent pool
+
  
 variables:
   azureServiceConnection: 'beka-bela-coonectioAR'
@@ -23,3 +25,4 @@ steps:
           --resource-group $(resourceGroupName) \
           --template-file iac/main.bicep \
           --parameters @iac/parameters/dev.parameters.json
+        
