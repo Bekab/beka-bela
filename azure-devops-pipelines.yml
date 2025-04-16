@@ -8,8 +8,8 @@ pool:
  
 variables:
   azureServiceConnection: 'beka-bela-coonectioAR'
-  resourceGroupName: 'abel_RG'
-  location: 'westeurope'
+  resourceGroupName: 'Bereketab'
+  location: 'Poland Central'
  
 steps:
   - task: AzureCLI@2
