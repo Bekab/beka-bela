@@ -4,25 +4,32 @@ trigger:
       - main
  
 pool:
- 
   name: bela-beka-agent # Use the name of your agent pool
 
- 
 variables:
   azureServiceConnection: 'beka-bela-coonectioAR'
   resourceGroupName: 'Bereketab'
   location: 'Poland Central'
- 
+
 steps:
   - task: AzureCLI@2
     inputs:
       azureSubscription: $(azureServiceConnection)
-      scriptType: bash
+      scriptType: ps  # Use PowerShell script type
       scriptLocation: inlineScript
       inlineScript: |
-        az bicep install
-        az deployment group create \
-          --resource-group $(resourceGroupName) \
-          --template-file iac/main.bicep \
-          --parameters @iac/parameters/dev.parameters.json
+        # Install Azure CLI if not already installed
+        if (-not (Get-Command az -ErrorAction SilentlyContinue)) {
+          Write-Host "Azure CLI not found. Installing Azure CLI..."
+          Invoke-WebRequest -Uri https://aka.ms/installazurecliwindows -OutFile install-azure-cli.ps1
+          .\install-azure-cli.ps1
+        } else {
+          Write-Host "Azure CLI is already installed."
+        }
         
+        # Run your Azure CLI commands
+        az bicep install
+        az deployment group create `
+          --resource-group $(resourceGroupName) `
+          --template-file iac/main.bicep `
+          --parameters @iac/parameters/dev.parameters.json
